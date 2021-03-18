@@ -175,8 +175,7 @@ const Report = () => {
           type="checkbox"
           className="reportform__input"
           checked={bombas}
-          defaultChecked={true}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <h4 className="reportform__subtitle">Limpieza</h4>
@@ -184,11 +183,10 @@ const Report = () => {
         <label className="reportform__label">Paredes de clarificador</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_clarificador")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_clarificador}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
 
@@ -196,11 +194,10 @@ const Report = () => {
         <label className="reportform__label">Cárcamo de regulación</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_carcamo")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_carcamo}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
 
@@ -208,11 +205,10 @@ const Report = () => {
         <label className="reportform__label">Criba de cárcamo</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_criba")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_criba}
-          autoComplete="off"
+          adefaultChecked={false}
         />
       </div>
 
@@ -220,11 +216,10 @@ const Report = () => {
         <label className="reportform__label">Filtro y prefiltro</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_filtros")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_filtros}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
 
@@ -232,33 +227,30 @@ const Report = () => {
         <label className="reportform__label">Clorador</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_clorador")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_clorador}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Cisterna de agua tratada</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_cisterna")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_cisterna}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Rototamiz</label>
         <input
           onChange={handleChangeCheckboxes("limpieza_rototamiz")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={limpieza_rototamiz}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <h4 className="reportform__subtitle">Mediciones</h4>
@@ -358,22 +350,20 @@ const Report = () => {
         <label className="reportform__label">Desecho de lodos</label>
         <input
           onChange={handleChangeCheckboxes("desecho_lodos")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={desecho_lodos}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Disposicion de lodos</label>
         <input
           onChange={handleChangeCheckboxes("disposicion_lodos")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={disposicion_lodos}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <h4 className="reportform__subtitle">Mantenimiento preventivo</h4>
@@ -381,44 +371,40 @@ const Report = () => {
         <label className="reportform__label">Grasa en sopladores</label>
         <input
           onChange={handleChangeCheckboxes("grasa_sopladores")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={grasa_sopladores}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Aceite en sopladores</label>
         <input
           onChange={handleChangeCheckboxes("aceite_sopladores")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={aceite_sopladores}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Grasa en rototamiz</label>
         <input
           onChange={handleChangeCheckboxes("grasa_rototamiz")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={grasa_rototamiz}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">
         <label className="reportform__label">Aceite en rototamiz</label>
         <input
           onChange={handleChangeCheckboxes("aceite_rototamiz")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={aceite_rototamiz}
-          autoComplete="off"
+          defaultChecked={false}
         />
       </div>
       <div className="reportform__group">

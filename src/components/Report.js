@@ -85,6 +85,7 @@ const Report = () => {
   const clickSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
+    console.log(values);
     newReport({
       operador: user._id,
       planta: "602c7188420f2c4880667fd8",
@@ -175,6 +176,7 @@ const Report = () => {
           type="checkbox"
           className="reportform__input"
           checked={bombas}
+          value={true}
           defaultChecked={false}
         />
       </div>

@@ -98,13 +98,11 @@ const Report = () => {
       } else {
         setValues({
           ...values,
-          values: "",
           success: true,
         });
         setTimeout(() => {
           setValues({
             ...values,
-            values: "",
             success: false,
           });
         }, 5000);
@@ -174,10 +172,10 @@ const Report = () => {
         <label className="reportform__label">Bombas en operación</label>
         <input
           onChange={handleChangeCheckboxes("bombas")}
-          key={Math.random()}
           type="checkbox"
           className="reportform__input"
           checked={bombas}
+          defaultChecked={true}
           autoComplete="off"
         />
       </div>

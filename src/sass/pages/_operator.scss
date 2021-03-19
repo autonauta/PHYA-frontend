@@ -1,0 +1,15 @@
+.operator {
+  &__title {
+    width: 100vw;
+    margin-top: 2rem;
+    font-size: 2rem;
+    border-bottom-style: solid;
+    border-bottom-width: 1.5px;
+    border-bottom-color: rgba($color-black, 0.6);
+    padding-left: 2rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

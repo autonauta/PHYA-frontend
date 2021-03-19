@@ -1,11 +1,10 @@
 .container {
   width: 100vw;
-  padding-top: 2rem;
-
+  height: calc(100vh - #{$navbar-height});
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
 }
 .reportContainer {
   width: 100vw;
@@ -19,12 +18,14 @@
 
 .form {
   width: 70%;
+  height: auto;
   display: flex;
   border-radius: 10px;
   padding: 2rem;
   padding-bottom: 4rem;
   background-color: $color-blue2-light;
   box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+  transform: translateY(-4rem);
 
   flex-direction: column;
   align-items: center;
@@ -87,9 +88,6 @@
 
 .success,
 .error {
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
   height: 5rem;
   font-size: 2rem;
   color: $color-white;
@@ -99,19 +97,16 @@
 .success {
   background-color: green;
 }
+.error {
+  background-color: red;
+}
 .success_report {
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
   height: 5rem;
   font-size: 2rem;
   color: $color-white;
   border-radius: 5px;
   padding: 1rem 2rem;
   background-color: green;
-}
-.error {
-  background-color: red;
 }
 
 .reportform {

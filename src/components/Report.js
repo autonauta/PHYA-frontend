@@ -6,37 +6,37 @@ import { isAuthenticated, newReport } from "../apiCore";
 
 const Report = () => {
   const [values, setValues] = useState({
-    presion_soplador: "",
-    flujo_alim: "",
-    flujo_ret: "",
-    flujo_desnatador: "",
-    flujo_tr: "",
-    bombas: "",
-    limpieza_clarificador: "",
-    limpieza_carcamo: "",
-    limpieza_criba: "",
-    limpieza_filtros: "",
-    limpieza_clorador: "",
-    limpieza_cisterna: "",
-    limpieza_rototamiz: "",
-    ph_entrada: "",
-    ph_salida: "",
-    cloro_salida: "",
-    dato_1: "",
-    dato_2: "",
-    dato_3: "",
-    dato_4: "",
-    dato_5: "",
-    dato_6: "",
-    desecho_lodos: "",
-    disposicion_lodos: "",
-    grasa_sopladores: "",
-    aceite_sopladores: "",
-    grasa_rototamiz: "",
-    aceite_rototamiz: "",
-    pastillas_cloro: "",
-    comentarios: "",
-    error: "",
+    presion_soplador: 0,
+    flujo_alim: 0,
+    flujo_ret: 0,
+    flujo_desnatador: 0,
+    flujo_tr: 0,
+    bombas: false,
+    limpieza_clarificador: false,
+    limpieza_carcamo: false,
+    limpieza_criba: false,
+    limpieza_filtros: false,
+    limpieza_clorador: false,
+    limpieza_cisterna: false,
+    limpieza_rototamiz: false,
+    ph_entrada: 0,
+    ph_salida: 0,
+    cloro_salida: 0,
+    dato_1: 0,
+    dato_2: 0,
+    dato_3: 0,
+    dato_4: 0,
+    dato_5: 0,
+    dato_6: 0,
+    desecho_lodos: false,
+    disposicion_lodos: false,
+    grasa_sopladores: false,
+    aceite_sopladores: false,
+    grasa_rototamiz: false,
+    aceite_rototamiz: false,
+    pastillas_cloro: 0,
+    comentarios: 0,
+    error: false,
     success: false,
   });
   const { user } = isAuthenticated();
@@ -75,17 +75,21 @@ const Report = () => {
     error,
   } = values;
 
+  const printValues = (v) => {
+    console.log(v);
+  };
+
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
-  const handleChangeCheckboxes = (name) => (event) => {
-    setValues({ ...values, error: false, [name]: event.target.checked });
+  const handleChangeCheckboxes = (n) => (e) => {
+    setValues({ ...values, [n]: e.target.checked });
+    printValues(values);
   };
 
   const clickSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
-    console.log(values);
     newReport({
       operador: user._id,
       planta: "602c7188420f2c4880667fd8",
@@ -175,9 +179,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("bombas")}
           type="checkbox"
           className="reportform__input"
-          checked={bombas}
-          value={true}
-          defaultChecked={false}
+          defaultChecked={bombas}
         />
       </div>
       <h4 className="reportform__subtitle">Limpieza</h4>
@@ -187,8 +189,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_clarificador")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_clarificador}
-          defaultChecked={false}
+          defaultChecked={limpieza_clarificador}
         />
       </div>
 
@@ -198,8 +199,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_carcamo")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_carcamo}
-          defaultChecked={false}
+          defaultChecked={limpieza_carcamo}
         />
       </div>
 
@@ -209,8 +209,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_criba")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_criba}
-          adefaultChecked={false}
+          defaultChecked={limpieza_criba}
         />
       </div>
 
@@ -220,8 +219,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_filtros")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_filtros}
-          defaultChecked={false}
+          defaultChecked={limpieza_filtros}
         />
       </div>
 
@@ -231,8 +229,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_clorador")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_clorador}
-          defaultChecked={false}
+          defaultChecked={limpieza_clorador}
         />
       </div>
       <div className="reportform__group">
@@ -241,8 +238,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_cisterna")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_cisterna}
-          defaultChecked={false}
+          defaultChecked={limpieza_cisterna}
         />
       </div>
       <div className="reportform__group">
@@ -251,8 +247,7 @@ const Report = () => {
           onChange={handleChangeCheckboxes("limpieza_rototamiz")}
           type="checkbox"
           className="reportform__input"
-          checked={limpieza_rototamiz}
-          defaultChecked={false}
+          defaultChecked={limpieza_rototamiz}
         />
       </div>
       <h4 className="reportform__subtitle">Mediciones</h4>
@@ -456,7 +451,7 @@ const Report = () => {
       } else if (user.role === 2) {
         return <Redirect to="/admin" />;
       }
-    } else if (!isAuthenticated()) {
+    } else {
       return <Redirect to="/login" />;
     }
   };
@@ -467,6 +462,7 @@ const Report = () => {
       <div className="reportContainer">
         <h2 className="reportform__title">{reportTitle}</h2>
         <h1 className="reportform__user">Usuario: {user.name}</h1>
+        {userNav()}
         {redirectUser()}
         {reportForm()}
         {showError()}

@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 
 import { isAuthenticated, logout } from "../apiCore";
 import logo from "../img/LOGO_PHYA.png";
-import logoText from "../img/logo_PHYA_TEXT.png";
 
 const Navbar = ({ history }) => {
   return (
@@ -11,9 +10,6 @@ const Navbar = ({ history }) => {
       <nav className="navbar">
         <Link to="/" className="navbar__logobox">
           <img src={logo} alt="Logotipo" className="navbar__logo" />
-        </Link>
-        <Link to="/" className="navbar__logobox2">
-          <img src={logoText} alt="Logotipo" className="navbar__logo2" />
         </Link>
         {isAuthenticated() && (
           <Link
@@ -25,7 +21,7 @@ const Navbar = ({ history }) => {
             }
             className="navbar__link"
           >
-            Logout
+            Salir
           </Link>
         )}
       </nav>

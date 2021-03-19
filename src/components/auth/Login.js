@@ -68,7 +68,7 @@ const Login = () => {
   const redirectUser = () => {
     if (redirectToReferrer) {
       if (user && user.role === 0) {
-        return <Redirect to="/operador" />;
+        return <Redirect to="/operator" />;
       } else if (user.role === 1) {
         return <Redirect to="/supervisor" />;
       } else if (user.role === 2) {
@@ -77,7 +77,7 @@ const Login = () => {
     }
     if (isAuthenticated()) {
       if (user.role === 0) {
-        return <Redirect to="/operador" />;
+        return <Redirect to="/operator" />;
       } else if (user.role === 1) {
         return <Redirect to="/supervisor" />;
       } else if (user.role === 2) {

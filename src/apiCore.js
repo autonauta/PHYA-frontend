@@ -1,16 +1,5 @@
 import { API } from "./config";
 
-export const getVideogames = () => {
-  return fetch(`${API}/videogame/videogames`, {
-    method: "GET",
-  })
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .catch((err) => console.log(err));
-};
-
 export const read = (videogameId) => {
   return fetch(`${API}/videogame/${videogameId}`, {
     method: "GET",
@@ -122,9 +111,12 @@ export const createCategory = (userId, token, category) => {
     });
 };
 
-export const getPlants = () => {
+export const requirePlants = () => {
   return fetch(`${API}/plant/list`, {
     method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
     .then((response) => {
       return response.json();

@@ -444,11 +444,11 @@ const Report = () => {
 
   const redirectUser = () => {
     if (isAuthenticated()) {
-      if (user.role === 0) {
+      if (user.role === 1) {
         return <Redirect to="/operador" />;
-      } else if (user.role === 1) {
-        return <Redirect to="/supervisor" />;
       } else if (user.role === 2) {
+        return <Redirect to="/supervisor" />;
+      } else if (user.role === 3) {
         return <Redirect to="/admin" />;
       }
     } else {

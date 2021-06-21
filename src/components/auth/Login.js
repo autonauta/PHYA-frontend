@@ -25,10 +25,14 @@ const Login = () => {
     login({ email, password }).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, loading: false });
+        setTimeout(() => {
+          setValues({ ...values, error: false, loading: false });
+        }, 5000);
       } else {
         authenticate(data, () => {
           setValues({
-            ...values,
+            email: "",
+            password: "",
             redirectToReferrer: true,
           });
         });
@@ -67,20 +71,20 @@ const Login = () => {
 
   const redirectUser = () => {
     if (redirectToReferrer) {
-      if (user && user.role === 0) {
+      if (user && user.role === 1) {
         return <Redirect to="/operator" />;
-      } else if (user.role === 1) {
-        return <Redirect to="/supervisor" />;
       } else if (user.role === 2) {
+        return <Redirect to="/supervisor" />;
+      } else if (user.role === 3) {
         return <Redirect to="/admin" />;
       }
     }
     if (isAuthenticated()) {
-      if (user.role === 0) {
+      if (user.role === 1) {
         return <Redirect to="/operator" />;
-      } else if (user.role === 1) {
-        return <Redirect to="/supervisor" />;
       } else if (user.role === 2) {
+        return <Redirect to="/supervisor" />;
+      } else if (user.role === 3) {
         return <Redirect to="/admin" />;
       }
     }
@@ -103,9 +107,9 @@ const Login = () => {
     <>
       <Navbar />
       <div className="container">
-        {showError()}
-        {showLoading()}
         {logInForm()}
+        {showLoading()}
+        {showError()}
         {redirectUser()}
       </div>
     </>

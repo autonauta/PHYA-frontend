@@ -377,9 +377,10 @@ body {
   width: 100vw;
   height: calc(100vh - 8rem);
   display: flex;
+  flex-direction: column;
 }
 .supervisor__menu {
-  width: 20%;
+  width: 100vw;
   background-color: #01c0f4;
   border-radius: 5px;
   display: flex;
@@ -388,7 +389,6 @@ body {
   align-items: center;
 }
 .supervisor__menu__title {
-  margin-top: 3rem;
   font-size: 3rem;
 }
 .supervisor__menu__link {
@@ -403,7 +403,7 @@ body {
   font-weight: 700;
 }
 .supervisor__mainZone {
-  width: 80%;
+  width: 100vw;
   height: 100%;
 }
 
